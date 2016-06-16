@@ -1,0 +1,13 @@
+apply plugin: 'com.android.library'
+apply from: rootProject.file('buildsystem/andcup-android.gradle')
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    //  ref andcup frame
+    def andcup = rootProject.ext.andcup
+    compile andcup.framework
+    def libs = rootProject.ext.libs
+    compile libs.retrofit
+    compile libs.eventbus
+    compile andcup.download
+}
