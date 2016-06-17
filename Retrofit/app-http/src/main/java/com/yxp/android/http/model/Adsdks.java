@@ -1,57 +1,47 @@
 package com.yxp.android.http.model;
+
 import com.andcup.android.database.activeandroid.Model;
 import com.andcup.android.database.activeandroid.annotation.Column;
-import com.andcup.android.database.activeandroid.annotation.Table;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.yxp.android.http.model.db.DbColumn;
 
 import java.io.Serializable;
 
 /**
  * Created by Administrator on 2016/5/24.
  */
-@Table(name = "AdsdkEntity")
-public class AdsdkEntity extends IntegralWallEntity  implements Serializable{
+public class  Adsdks extends Model implements Serializable {
 
     //广告ID
-    @JsonProperty("ads_id")
-    @Column
+    @Column(name = DbColumn.ADSDK_ID)
     int ads_id;
     //广告名字
-    @JsonProperty("ads_name")
-    @Column
+    @Column(name = DbColumn.ADSDK_NAME)
      String ads_name;
     //图片URL地址
-    @JsonProperty("img_url")
-    @Column
+     @Column(name = DbColumn.ADSDK_IMG_URL)
      String img_url;
     //广告链接地址
-    @JsonProperty("lpg_url")
-    @Column
+    @Column(name = DbColumn.ADSDK_LPG_URL)
      String lpg_url;
     //广告开始日期
-    @JsonProperty("begin_date")
-    @Column
+    @Column(name = DbColumn.ADSDK_BEGIN_DATE)
      String begin_date;
     //广告结束日期
-    @JsonProperty("end_date")
-    @Column
+    @Column(name = DbColumn.ADSDK_END_DATE)
      String end_date;
     //广告开始时间
-    @JsonProperty("period_from")
-    @Column
+    @Column(name = DbColumn.ADSDK_PEIOD_FROM)
      String period_from;
     //广告结束时间
-    @JsonProperty("period_to")
-    @Column
+    @Column(name = DbColumn.ADSDK_PERIOD_TO)
      String period_to;
     //广告宽度
-    @JsonProperty("width")
-    @Column
+    @Column(name = DbColumn.ADSDK_WIDTH)
      String width;
     //广告高度
-    @JsonProperty("height")
-    @Column
-    public String height;
+    @Column(name = DbColumn.ADSDK_HEIGHT)
+    String height;
 
     public int getAds_id() {
         return ads_id;

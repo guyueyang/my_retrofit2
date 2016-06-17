@@ -1,10 +1,14 @@
 package com.yxp.android.retrofit;
 
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import com.andcup.android.frame.datalayer.sql.SqlConvert;
+import com.andcup.android.frame.datalayer.sql.SqlLoader;
 import com.yxp.android.http.SimpleCallback;
 import com.yxp.android.http.job.JobGetSplash;
 import com.yxp.android.http.job.JobUserLogin;
@@ -27,6 +31,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void afterActivityCreate(Bundle savedInstanceState) {
         super.afterActivityCreate(savedInstanceState);
+        load();
     }
 
     @Override
@@ -39,13 +44,10 @@ public class MainActivity extends BaseActivity {
      */
     @OnClick(R.id.btn_ces)
     public  void onCes(View view){
-        String username="18006931194";
-        String password="";
-        call(new JobGetSplash(),new SimpleCallback<BasesEntity<List<AdsdkEntity>>>() {
+        call(new JobGetSplash(),new SimpleCallback<BasesEntity<AdsdkEntity>>() {
             @Override
-            public void onSuccess(BasesEntity<List<AdsdkEntity>> loginEntityBaseEntity) {
-                Log.i("------",loginEntityBaseEntity.getMessage());
-                Log.i("------",loginEntityBaseEntity.body().get(0).getAds_id());
+            public void onSuccess(BasesEntity<AdsdkEntity> loginEntityBaseEntity) {
+                Log.i("------",loginEntityBaseEntity.getList().get(0).getAds_id()+"");
 
             }
             @Override
@@ -54,5 +56,18 @@ public class MainActivity extends BaseActivity {
             }
         });
 
+    }
+
+    public void load(){
+        loader(AdsdkEntity.class, (SqlLoader.CursorCallBack) new SqlLoader.CursorCallBack() {
+            @Override
+            public void onUpdate(Cursor cursor) {
+                List<AdsdkEntity> hotTasks = SqlConvert.convert(cursor, AdsdkEntity.class, 10);
+                if (null != hotTasks) {
+                    Log.i("------", hotTasks.get(0).getAds_name());
+
+                }
+            }
+        });
     }
 }

@@ -72,7 +72,7 @@ public interface IntegralWallApis {
                                            @Field(Fields.SIGN) String sign);
     @FormUrlEncoded
     @POST("/Ads/getSplashScreenAds")
-    Call<BasesEntity<List<AdsdkEntity>>> splash(@Field(Fields.AD_REQID) String reqid,
+    Call<BasesEntity<AdsdkEntity>> splash(@Field(Fields.AD_REQID) String reqid,
                                                 @Field(Fields.AD_APPID) String id,
                                                 @Field(Fields.AD_WIDTH) String width,
                                                 @Field(Fields.AD_HEIGHT) String height,

@@ -1,5 +1,8 @@
 package com.yxp.android.http.model.db;
 
+import com.andcup.android.database.activeandroid.annotation.Column;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Created by Amos on 2015/8/30.
  */
@@ -53,4 +56,16 @@ public class DbColumn {
 
     public static final String TASK_LIMIT       = "limitTask";
     public static final String TASK_LIMIT_TIME       = "limitTime";
+
+    public static final String ADSDK_ID="id";
+    public static final String ADSDK_NAME="name";
+    public static final String ADSDK_IMG_URL="ad_img_url";
+    public static final String ADSDK_LPG_URL="ad_lpg_url";
+    public static final String ADSDK_BEGIN_DATE="ad_begin_date";
+    public static final String ADSDK_END_DATE="ad_end_date";
+    public static final String ADSDK_PEIOD_FROM="ad_period_from";
+    public static final String ADSDK_PERIOD_TO="ad_period_to";
+    public static final String ADSDK_WIDTH="ad_width";
+    public static final String ADSDK_HEIGHT="ad_height";
+
 }

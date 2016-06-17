@@ -1,13 +1,18 @@
 package com.yxp.android.http.model.base;
 
+import com.andcup.android.database.activeandroid.annotation.Column;
 import com.andcup.android.frame.datalayer.job.JobEntity;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.yxp.android.http.IntegralWallException;
 import com.yxp.android.http.IntegralWallJob;
 import com.yxp.android.http.exception.AccountDisableException;
 import com.yxp.android.http.exception.AnotherLoginException;
+import com.yxp.android.http.model.AdsdkEntity;
 
 import org.greenrobot.eventbus.EventBus;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * site :  http://www.andcup.com
@@ -22,8 +27,18 @@ public class BasesEntity<T>extends JobEntity<T> {
     int    mErrCode;
     @JsonProperty("errmsg")
     String mMessage;
+//    @JsonProperty("data")
+//    T      mBody;
+//    @JsonProperty("data")
+//    @Column(isJsonText = true, collection = ArrayList.class, element = AdsdkEntity.class)
+//    List<AdsdkEntity> mTaskOptions;
+
     @JsonProperty("data")
-    T      mBody;
+    List<T> mList;
+
+    public List<T> getList() {
+        return mList;
+    }
 
     public void setErrCode(int mErrCode) {
         this.mErrCode = mErrCode;
@@ -45,7 +60,7 @@ public class BasesEntity<T>extends JobEntity<T> {
 
     @Override
     public T body() {
-        return mBody;
+        return null;
     }
 
     @Override

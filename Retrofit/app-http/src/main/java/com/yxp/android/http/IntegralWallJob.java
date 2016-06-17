@@ -4,6 +4,7 @@ import com.andcup.android.frame.datalayer.exception.JobException;
 import com.andcup.android.frame.datalayer.job.Job;
 import com.andcup.android.frame.datalayer.job.JobEntity;
 import com.yxp.android.http.config.Logs;
+import com.yxp.android.http.task.Task;
 import com.yxp.android.http.tools.DeviceUtils;
 import com.yxp.android.http.tools.MD5;
 
@@ -13,7 +14,7 @@ import com.yxp.android.http.tools.MD5;
  * github: https://github.com/andcup
  * Created by Amos on 2016/3/14.
  */
-public abstract class IntegralWallJob<T extends JobEntity> implements Job<T>{
+public abstract class IntegralWallJob<T extends JobEntity> extends Task<T> {
 
     //提现之前必须先做任务.
     public static final int DO_TASK_BEFORE_CASH_CHECK = -9;
